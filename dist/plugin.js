@@ -1,1 +1,1 @@
-figma.showUI(__html__);
+(()=>{"use strict";figma.showUI(__html__),figma.ui.resize(1320,923),figma.ui.onmessage=function(e){var a=figma.variables.createVariableCollection("new-collection"),i=a.modes[0].modeId;figma.variables.createVariable("fontFamily",a,"STRING").setValueForMode(i,"Bold")}})();
