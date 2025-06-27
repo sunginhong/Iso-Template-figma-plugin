@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+:root {
+  --main-background: #fff;
+  --font-roboto: 'Roboto', sans-serif;
+  --code-fonts: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
+  /* -webkit-user-select: none; */
+  /* user-select: none; */
+}
+
+body {
+  font-family: var(--font-roboto);
+}
+
+html, body {
+  background: var(--main-background);
+  margin: 0;
+}
+
+.main_title_contain {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    > .title {
+        color: var(--Gray-800, #1F2633);
+        font-feature-settings: 'liga' off, 'clig' off;
+        font-family: "SF Pro Display";
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 42px; /* 116.667% */
+        margin: 0;
+    }
+
+    > .sub_title {
+        color: #6A7078;
+        font-feature-settings: 'liga' off, 'clig' off;
+        font-family: "SF Pro Display";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 24px; /* 171.429% */
+        margin: 0;
+    }
+}

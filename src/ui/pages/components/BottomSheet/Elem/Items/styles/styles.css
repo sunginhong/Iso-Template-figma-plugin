@@ -1,0 +1,20 @@
+.bottom-sheet-items {
+    display: flex;
+    width: 196.005px;
+    padding-bottom: 9.952px;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 12.8px 12.8px 0px 0px;
+    background: var(--Neutral-Background-1-Default, #FFF);
+    box-shadow: 0px -1.496px 2.992px 0px rgba(0, 0, 0, 0.08);
+
+    > .contents {
+        display: flex;
+        width: 196.005px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}

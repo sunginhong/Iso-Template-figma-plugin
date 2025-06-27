@@ -1,0 +1,39 @@
+h1, p, a, span {
+    margin: 0;
+}
+
+.resources {
+    .preview {
+        display: flex;
+        /* padding: 32px 260px; */
+        width: 534px;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        align-self: stretch;
+        border-radius: 8px;
+        background: #F7F7F7;
+    }
+}
+.comp_guide {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 60px;
+    > .conents {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        > .conents_title {
+            color: #000;
+            font-family: "SF Pro Display";
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+    }
+
+}
