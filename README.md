@@ -1,39 +1,53 @@
-# Figma Plugin React Boilerplate
+# Animate TimeLine
+**Figma Plugin**
 
-react boilerplate for react plugin
+https://www.figma.com/community/plugin/1390574471920151745/animate-timeline
 
-## Getting started
+<br>
 
-1. Create a project based on this boilerplate.
+![animeTimeline_video_1](https://github.com/user-attachments/assets/577ec164-5d35-4bbd-9e08-366d2ae0a041)
 
-```bash
-$ npx degit https://github.com/hseoy/figma-plugin-react-boilerplate <project name>
-```
+### Interaction Guide Creation Tool
 
-2. Install the dependencies.
+> Escape the hassle of creating interaction guides! While essential for design projects, creating interaction guides can often be time-consuming and labor-intensive. To alleviate this burden, we have developed a groundbreaking Figma plugin. By simply inputting Action attributes, this Figma plugin automatically generates timelines and interaction guides, making your workflow more efficient and straightforward.
 
-```bash
-$ yarn install
-```
+<br>
 
-3. To rebuild it when the files are changed, run `yarn watch`
+### Key Features of the Plugin
 
-```bash
-$ yarn watch
-```
+> #### 1.Automatic Timeline Generation
+> By entering Action attributes, the plugin automatically creates a timeline. This allows you to easily visualize the sequence and timing of interactions, facilitating the creation of more intuitive and clear guides. The timeline and guide are completed quickly and accurately without the need for manual input, greatly aiding in smooth communication with developers.
 
-4. The plugin is ready to be added to Figma for development.
+> #### 2.Time Reduction
+> No more need for manually creating complex interaction guides. The plugin's automatic timeline generation significantly reduces the time required to write guides. Through automated processes, designers can focus more on important creative tasks.
 
-### Figma for plugin development
+> #### 3.User-Friendly Interface
+> The plugin features an easy-to-use interface that anyone can use effortlessly. Designed for intuitive use, it can be utilized immediately without a complicated learning curve.
 
-1. Open Figma desktop application.
+> #### 4.Accurate Interaction Definition
+> Based on the input code attributes, the plugin accurately defines interactions. This helps in creating consistent and error-free guides.
 
-2. Click on your profile icon dropdown in the top right and select `Plugins` from the list
 
-3. Scroll down to the `In development` section and click the plus(+) icon
 
-4. Choose `Import from manifest`
+### How to Use
 
-5. Locate the manifest.json in your newly created project and then select Open
+> Install the plugin and open your project in Figma.
+Select the element for which you want to create an interaction guide.
+Enter the code attributes into the plugin panel.
+The plugin will automatically generate the timeline and complete the interaction guide.
 
-6. Now you will be able to use this plugin.
+
+
+### Conclusion
+
+> Stop wasting time on complex interaction guide creation. Use our Figma plugin to create interaction guides efficiently and accurately. Experience the Figma plugin that reduces the time spent on guide creation now!
+
+
+
+### Product
+
+- manager - lee sangmin
+- design - kim yeoreum, park sumin
+- developer(dev) - hong sungin
+
+<br>

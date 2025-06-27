@@ -1,7 +1,7 @@
 {
-  "name": "figma-plugin-react-boilerplate",
+  "name": "naver-interctive-studio-template",
   "version": "1.0.0",
-  "description": "boilerplate for figma plugin",
+  "description": "naver-interctive-studio-template",
   "main": "dist/plugin.js",
   "repository": "https://github.com/hseoy/figma-plugin-react-boilerplate.git",
   "author": "Yunseo Hwang <yunseo.dev@gmail.com>",
@@ -49,15 +49,20 @@
     "prettier": "^2.5.1",
     "style-loader": "^3.3.1",
     "ts-jest": "^27.1.3",
-    "ts-loader": "^9.2.6",
-    "typescript": "^4.5.5",
+    "ts-loader": "^9.5.1",
+    "typescript": "^4.9.5",
     "url-loader": "^4.1.1",
-    "webpack": "^5.67.0",
-    "webpack-cli": "^4.9.2",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^4.10.0",
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "node": "^22.6.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-hooks": "^1.0.1",
+    "react-router-dom": "^6.26.0",
+    "styled-components": "^6.1.12",
+    "watch": "^1.0.2"
   }
 }
