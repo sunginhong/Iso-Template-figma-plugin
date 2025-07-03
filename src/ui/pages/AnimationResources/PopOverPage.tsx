@@ -3,6 +3,7 @@ import "./styles/styles.css"
 import Popover from "../components/Popover/Popover"
 import GuideForm from "../components/Ui/GuideForm"
 import { PopOverEntry, PopOverExit } from "./data/PopOver"
+import PopOverGuide from "./GuideImages/PopOver/PopOverGuide"
 
 export default function PopOverPage() {
     const previewRef = React.useRef<HTMLDivElement>(null)
@@ -34,7 +35,8 @@ export default function PopOverPage() {
                         style={{
                             display: "flex",
                             height: "280px",
-                            padding: "0px 130px",
+                            width: "1054px",
+                            padding: "32px 0px",
                             flexDirection: "column",
                             alignItems: "center",
                             gap: "40px",
@@ -46,24 +48,8 @@ export default function PopOverPage() {
                         <Popover previewSize={previewSize} />
                     </div>
                 </div>
-                <div className="conents">
-                    <h1 className="conents_title">Guide</h1>
-                    <GuideForm
-                        previewSize={previewSize}
-                        previewPadding={previewPadding}
-                        caseTitle={"Entry"}
-                        dataSet={PopOverEntry}
-                        guide={true}
-                        timeline={true}
-                    />
-                    <GuideForm
-                        previewSize={previewSize}
-                        previewPadding={previewPadding}
-                        caseTitle={"Exit"}
-                        dataSet={PopOverExit}
-                        guide={true}
-                        timeline={true}
-                    />
+                <div className="conents" style={{ gap: "0px" }}>
+                   <PopOverGuide/>
                 </div>
             </div>
         </div>

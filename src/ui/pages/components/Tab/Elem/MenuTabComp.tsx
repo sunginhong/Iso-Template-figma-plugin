@@ -18,6 +18,15 @@ const MenuTabComp: React.FC<Props> = ({
     const listItemRef = useRef<Array<HTMLDivElement | null>>([])
     const scrollRef = useRef<HTMLDivElement>(null)
     const scPadding = 12 
+    const [hold, setHold] = useState(true)
+
+    useEffect(() => {
+        setTimeout(() => {
+            if (listItemRef.current.length > 0) {
+                setHold(false)  
+            }
+        }, 100);
+    }, [listItemRef.current])  
 
     useEffect(() => {
         const el = listItemRef.current[currentIdx]
@@ -124,7 +133,6 @@ const MenuTabComp: React.FC<Props> = ({
                             alignItems: "center",
                             flex: "1 0 0",
                             paddingLeft: scPadding + "px",
-                            // marginRight: "20px",
                         }}
                     >
                         {tabLabels.map((item, index) => (
@@ -140,7 +148,6 @@ const MenuTabComp: React.FC<Props> = ({
                                     gap: "11px",
                                     position: "relative",
                                     paddingLeft: "6px",
-                                    // paddingRight: "8px",
                                     cursor: "pointer",
                                     whiteSpace: "nowrap",
                                     fontStyle: "normal",
@@ -171,7 +178,7 @@ const MenuTabComp: React.FC<Props> = ({
                                 backgroundColor: "#000",
                                 borderRadius: 999,
                                 transition:
-                                    "left 0.3s cubic-bezier(0.4,0,0.2,1), width 0.3s cubic-bezier(0.4,0,0.2,1)",
+                                    hold ? "all 0s cubic-bezier(0.4,0,0.2,1)" : "left 0.3s cubic-bezier(0.4,0,0.2,1), width 0.3s cubic-bezier(0.4,0,0.2,1)",
                                 zIndex: 5,
                             }}
                         />

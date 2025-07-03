@@ -3,6 +3,7 @@ import "./styles/styles.css"
 import BottomSheet from "../components/BottomSheet/BottomSheet"
 import GuideForm from "../components/Ui/GuideForm"
 import { BottomSheetEntry, BottomSheetExit } from "./data/BottomSheet"
+import BottomSheetGuide from "./GuideImages/BottomSheet/BottomSheetGuide"
 
 export default function BottomSheetPage() {
     const previewRef = React.useRef<HTMLDivElement>(null)
@@ -33,7 +34,7 @@ export default function BottomSheetPage() {
                         className="preview"
                         style={{
                             display: "flex",
-                            width: "794px",
+                            width: "1054px",
                             paddingTop: padding + "px",
                             flexDirection: "column",
                             alignItems: "center",
@@ -49,24 +50,8 @@ export default function BottomSheetPage() {
                         />
                     </div>
                 </div>
-                <div className="conents">
-                    <h1 className="conents_title">Guide</h1>
-                    <GuideForm
-                        previewSize={previewSize}
-                        previewPadding={previewPadding}
-                        caseTitle={"Entry"}
-                        dataSet={BottomSheetEntry}
-                        guide={true}
-                        timeline={true}
-                    />
-                    <GuideForm
-                        previewSize={previewSize}
-                        previewPadding={previewPadding}
-                        caseTitle={"Exit"}
-                        dataSet={BottomSheetExit}
-                        guide={true}
-                        timeline={true}
-                    />
+                <div className="conents" style={{ gap: "0px" }}>
+                   <BottomSheetGuide/>
                 </div>
             </div>
         </div>

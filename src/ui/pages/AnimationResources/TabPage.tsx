@@ -5,6 +5,7 @@ import GuideForm from "../components/Ui/GuideForm"
 import { TabAnchoring } from "./data/Tab"
 import TabImg0 from "./GuideImages/Tab/TabImg0"
 import TabImg1 from "./GuideImages/Tab/TabImg1"
+import TabGuide from "./GuideImages/Tab/TabGuide"
 
 export default function TabPage() {
     const previewRef = React.useRef<HTMLDivElement>(null)
@@ -36,7 +37,8 @@ export default function TabPage() {
                         style={{
                             display: "flex",
                             height: "280px",
-                            padding: "0px 130px",
+                            width: "1054px",
+                            padding: "32px 0px",
                             flexDirection: "column",
                             alignItems: "center",
                             gap: "40px",
@@ -49,69 +51,7 @@ export default function TabPage() {
                     </div>
                 </div>
                 <div className="conents" style={{ gap: "0px" }}>
-                    <h1 className="conents_title">Guide</h1>
-                    <GuideForm
-                        previewSize={previewSize}
-                        previewPadding={previewPadding}
-                        caseTitle={"Anchoring"}
-                        dataSet={TabAnchoring}
-                        guide={false}
-                        timeline={false}
-                        bgArr={{ borderRadius: 0 }}
-                    />
-
-                    <div
-                        style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            gap: "24px",
-                            backgroundColor: "rgb(247, 247, 247)",
-                        }}
-                    >
-                        <div
-                            style={{
-                                paddingTop: "50px",
-                                width: "730px",
-                                minWidth: "540px",
-                                display: "flex",
-                                flexDirection: "column",
-                                alignItems: "center",
-                            }}
-                        >
-                            <TabImg0 />
-                        </div>
-                        <GuideForm
-                            previewSize={previewSize}
-                            previewPadding={previewPadding}
-                            dataSet={TabAnchoring}
-                            guide={true}
-                            timeline={false}
-                            bgArr={{ borderRadius: 0 }}
-                        />
-
-                        <div
-                            style={{
-                                borderRadius: "10px",
-                                border: "1px solid rgba(0, 0, 0, 0.20)",
-                                padding: "50px 0px",
-                                width: "730px",
-                                minWidth: "540px",
-                                display: "flex",
-                                flexDirection: "column",
-                                alignItems: "center",
-                            }}
-                        >
-                            <TabImg1 />
-                        </div>
-                        <GuideForm
-                            previewSize={previewSize}
-                            previewPadding={previewPadding}
-                            dataSet={TabAnchoring}
-                            guide={false}
-                            timeline={true}
-                        />
-                    </div>
+                   <TabGuide/>
                 </div>
             </div>
         </div>

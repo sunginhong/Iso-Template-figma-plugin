@@ -88,7 +88,7 @@ function App() {
     <div
       className='contents'
       ref={contentsRef}
-      style={{position:"absolute", height: "923px" , left: "294px", overflowY: 'auto'}}
+      style={{position:"fixed", height: "923px" , left: "294px", overflow: "hidden", overflowY: 'auto' }}
     >
       {selectedSubIndex != -1
         ? resoucesContents[selectedSubIndex]?.page

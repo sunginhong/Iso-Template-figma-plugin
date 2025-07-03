@@ -6,6 +6,11 @@ import PlaceHolderType3 from "../components/PlaceHolder/Type3/PlaceHolderType3"
 import GuideForm from "../components/Ui/GuideForm"
 import { PlaceHolderLoading_A, PlaceHolderComplete_A, PlaceHolderLoading_B, PlaceHolderComplete_B, PlaceHolderLoading_C, PlaceHolderComplete_C } from "./data/PlaceHolder"
 import CountDown_Contain_Guide_re from "../components/00Common/CountDown/elem/CountDown_Contain_Guide_re"
+import PlaceHolderGuide1 from "./GuideImages/PlaceHolder/PlaceHolderGuide1"
+import PlaceHolderGuide2 from "./GuideImages/PlaceHolder/PlaceHolderGuide2"
+import PlaceHolderGuide3 from "./GuideImages/PlaceHolder/PlaceHolderGuide3"
+import { s } from "framer-motion/dist/types.d-CQt5spQA"
+
 
 export default function PlaceHolderPage() {
     const previewRef = useRef<HTMLDivElement>(null)
@@ -90,7 +95,8 @@ export default function PlaceHolderPage() {
                         style={{
                             display: "flex",
                             // height: "280px",
-                            padding: "0px 130px",
+                            width: "1054px",
+                            // padding: "0px 130px",
                             flexDirection: "column",
                             alignItems: "center",
                             gap: "40px",
@@ -171,40 +177,10 @@ export default function PlaceHolderPage() {
                         </div>
                     </div>
                 </div>
-                <div className="conents"  key={selectedTab}>
-                    <h1 className="conents_title">Guide</h1>
-                    <GuideForm
-                        previewSize={previewSize}
-                        previewPadding={previewPadding}
-                        caseTitle={"Loading"}
-                        dataSet={
-                            selectedTab === 0
-                                ? PlaceHolderLoading_A
-                                : selectedTab === 1
-                                  ? PlaceHolderLoading_B
-                                  : selectedTab === 2
-                                    ? PlaceHolderLoading_C
-                                    : undefined
-                        }
-                        guide={true}
-                        timeline={true}
-                    />
-                    <GuideForm
-                        previewSize={previewSize}
-                        previewPadding={previewPadding}
-                        caseTitle={"Complete"}
-                        dataSet={
-                            selectedTab === 0
-                                ? PlaceHolderComplete_A
-                                : selectedTab === 1
-                                  ? PlaceHolderComplete_B
-                                  : selectedTab === 2
-                                    ? PlaceHolderComplete_C
-                                    : undefined
-                        }
-                        guide={true}
-                        timeline={true}
-                    />
+                <div className="conents" style={{ gap: "0px" }}>
+                    {selectedTab === 0 && <PlaceHolderGuide1 />}
+                    {selectedTab === 1 && <PlaceHolderGuide2 />}
+                    {selectedTab === 2 && <PlaceHolderGuide3 />}
                 </div>
             </div>
         </div>

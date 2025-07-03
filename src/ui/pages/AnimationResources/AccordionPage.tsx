@@ -3,6 +3,7 @@ import "./styles/styles.css"
 import Accordion from "../components/Accordion/Accordion"
 import GuideForm from "../components/Ui/GuideForm"
 import {AccordionDataOpen, AccordionDataFold} from "./data/Accordion"
+import AccordionGuide from "./GuideImages/Accordion/AccordionGuide"
 
 export default function AccordionPage() {
     const previewRef = React.useRef<HTMLDivElement>(null)
@@ -36,7 +37,8 @@ export default function AccordionPage() {
                         className="preview"
                         style={{
                             display: "flex",
-                            padding: "32px 130px",
+                            width: "1054px",
+                            padding: "32px 0px",
                             flexDirection: "column",
                             alignItems: "center",
                             gap: 40,
@@ -48,24 +50,8 @@ export default function AccordionPage() {
                         <Accordion />
                     </div>
                 </div>
-                <div className="conents">
-                    <h1 className="conents_title">Guide</h1>
-                    <GuideForm
-                        previewSize={previewSize}
-                        previewPadding={previewPadding}
-                        caseTitle={"Open"}
-                        dataSet={AccordionDataOpen}
-                        guide={true}
-                        timeline={true}
-                    />
-                    <GuideForm
-                        previewSize={previewSize}
-                        previewPadding={previewPadding}
-                        caseTitle={"Fold"}
-                        dataSet={AccordionDataFold}
-                        guide={true}
-                        timeline={true}
-                    />
+                <div className="conents" style={{ gap: "0px" }}>
+                   <AccordionGuide/>
                 </div>
             </div>
         </div>

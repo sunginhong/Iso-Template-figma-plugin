@@ -3,6 +3,7 @@ import "./styles/styles.css"
 import Popup from "../components/Popup/Popup"
 import GuideForm from "../components/Ui/GuideForm"
 import { PopUpEntry, PopUpExit } from "./data/PopUp"
+import PopUpGuide from "./GuideImages/PopUp/PopUpGuide"
 
 export default function PopUpPage() {
     const previewRef = React.useRef<HTMLDivElement>(null)
@@ -35,7 +36,8 @@ export default function PopUpPage() {
                         style={{
                             display: "flex",
                             height: "280px",
-                            padding: "0px 130px",
+                            width: "1054px",
+                            // padding: "32px 0px",
                             flexDirection: "column",
                             alignItems: "center",
                             gap: "40px",
@@ -44,27 +46,11 @@ export default function PopUpPage() {
                             backgroundColor: "#F7F7F7",
                         }}
                     >
-                         <Popup previewSize={previewSize} />
+                     <Popup previewSize={previewSize} />
                     </div>
                 </div>
-                <div className="conents">
-                    <h1 className="conents_title">Guide</h1>
-                    <GuideForm
-                        previewSize={previewSize}
-                        previewPadding={previewPadding}
-                        caseTitle={"Entry"}
-                        dataSet={PopUpEntry}
-                        guide={true}
-                        timeline={true}
-                    />
-                    <GuideForm
-                        previewSize={previewSize}
-                        previewPadding={previewPadding}
-                        caseTitle={"Exit"}
-                        dataSet={PopUpExit}
-                        guide={true}
-                        timeline={true}
-                    />
+                <div className="conents" style={{ gap: "0px" }}>
+                   <PopUpGuide/>
                 </div>
             </div>
         </div>

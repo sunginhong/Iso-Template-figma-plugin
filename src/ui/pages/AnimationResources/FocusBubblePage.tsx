@@ -3,6 +3,7 @@ import "./styles/styles.css"
 import FocusBubble from "../components/FocusBubble/FocusBubble"
 import GuideForm from "../components/Ui/GuideForm"
 import { FocusBubbleEntry, FocusBubbleExit } from "./data/FocusBubble"
+import FocusBubbleGuide from "./GuideImages/FocusBubble/FocusBubbleGuide"
 
 export default function FocusBubblePage() {
     const previewRef = useRef<HTMLDivElement>(null)
@@ -40,7 +41,8 @@ export default function FocusBubblePage() {
                         style={{
                             display: "flex",
                             height: "280px",
-                            padding: "0px 130px",
+                            width: "1054px",
+                            padding: "32px 0px",
                             flexDirection: "column",
                             alignItems: "center",
                             gap: "40px",
@@ -52,24 +54,8 @@ export default function FocusBubblePage() {
                         <FocusBubble previewSize={previewSize} />
                     </div>
                 </div>
-                <div className="conents">
-                    <h1 className="conents_title">Guide</h1>
-                    <GuideForm
-                        previewSize={previewSize}
-                        previewPadding={previewPadding}
-                        caseTitle={"Entry"}
-                        dataSet={FocusBubbleEntry}
-                        guide={true}
-                        timeline={true}
-                    />
-                    <GuideForm
-                        previewSize={previewSize}
-                        previewPadding={previewPadding}
-                        caseTitle={"Exit"}
-                        dataSet={FocusBubbleExit}
-                        guide={true}
-                        timeline={true}
-                    />
+                <div className="conents" style={{ gap: "0px" }}>
+                   <FocusBubbleGuide/>
                 </div>
             </div>
         </div>
