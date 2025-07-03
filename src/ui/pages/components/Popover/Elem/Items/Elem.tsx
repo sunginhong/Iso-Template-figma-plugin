@@ -51,7 +51,7 @@ const Elem: React.FC<Props> = ({ onChangeState }) => {
                 <div
                     style={{
                         position: "absolute",
-                        top: "-6px",
+                        top: "0px",
                         width: "12px",
                         height: "8px",
                     }}

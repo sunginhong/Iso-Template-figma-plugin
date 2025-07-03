@@ -6,6 +6,7 @@ interface props {
     rowHeight?: number
     TimeBoxWidth?: number
     lastItem?: boolean
+    totalIndex?: number
 }
 
 const labelStyle: React.CSSProperties = {
@@ -24,7 +25,9 @@ const Line: React.FC<props> = ({
     rowHeight,
     TimeBoxWidth,
     lastItem,
+    totalIndex
 }) => {
+
     return (
         <div
             key={index}
@@ -36,6 +39,7 @@ const Line: React.FC<props> = ({
                 height: rowHeight + "px",
                 left: index * TimeBoxWidth + "px",
                 backgroundColor: "#C9C9C9",
+                visibility: totalIndex < 10 ? "visible" : totalIndex < 20 ? index % 2 === 0 ? "visible" : "hidden" : index % 3 === 0 ? "visible" : "hidden",
             }}
         >
             {lastItem ? (

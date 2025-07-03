@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
-import TriggerButton from "./Elem/TriggerButton"
+import TriggerButton from "../00Common/TriggerButton/TriggerButton"
 import PopupItem from './Elem/PopupItem';
-
+import EasingListSelProps from "../../page00_folder/EasingListSelProps"
 interface bottomSheetProps {
     previewSize?: { width: number; height: number }
 }
@@ -15,6 +15,15 @@ const Popup: React.FC<bottomSheetProps> = ({ previewSize }) => {
     const [hold, setHold] = useState(true)
     let defScaleMin = 0.95
     const [scaleMin, setScaleMin] = useState(defScaleMin)
+    const [easeStand, setEaseStand] = useState<Array<string>>([])
+    const [easeOut, setEaseOut] = useState<Array<string>>([])
+    const [easeInOut, setEaseInOut] = useState<Array<string>>([])
+
+    useEffect(() => {
+        setEaseStand(EasingListSelProps("ease_Standard")[1])
+        setEaseOut(EasingListSelProps("ease_Out")[1])
+        setEaseInOut(EasingListSelProps("ease_InOut")[1])
+    }, [])
 
     useEffect(() => {
         const timer = setTimeout(() => setHold(false), 100)
@@ -29,6 +38,9 @@ const Popup: React.FC<bottomSheetProps> = ({ previewSize }) => {
             setScaleMin(1)
             setTimeout(() => setScaleMin(defScaleMin), 150)
         }
+    }
+
+    const handleGetBtnHeight = (value: number) => {
     }
 
     const handleGetPopupSize = (value: { width: number; height: number }) => {
@@ -53,7 +65,7 @@ const Popup: React.FC<bottomSheetProps> = ({ previewSize }) => {
                         left: "50%",
                         transform: "translate(-50%,-50%)",
                         opacity: clickItems ? 0 : 1,
-                        transition: "opacity 0.3s cubic-bezier(0.15, 0, 0.15, 1)",  
+                        transition: "opacity 0.3s cubic-bezier(" + easeStand[0] + ", " + easeStand[1] + ", " + easeStand[2] + ", " + easeStand[3] + ")",  
                         transitionDelay: clickItems ? "0s" : "0.25s",
                     }}
                 >
@@ -61,6 +73,7 @@ const Popup: React.FC<bottomSheetProps> = ({ previewSize }) => {
                         title={"Open Popup"}
                         stateBool={clickItems}
                         onChangeState={handleChildValue}
+                        onItemHeight={handleGetBtnHeight}
                     />
                 </div>
             <div
@@ -72,8 +85,8 @@ const Popup: React.FC<bottomSheetProps> = ({ previewSize }) => {
                     backgroundColor: "#D9D9D9",
                     opacity: clickItems ? 1 : 0,
                     transition: clickItems
-                        ? "opacity 0.2s cubic-bezier(0.65, 0, 0.35, 1)"
-                        : "opacity 0.15s cubic-bezier(0.65, 0, 0.35, 1)",
+                        ? "opacity 0.2s cubic-bezier(" + easeInOut[0] + ", " + easeInOut[1] + ", " + easeInOut[2] + ", " + easeInOut[3] + ")"
+                        : "opacity 0.15s cubic-bezier(" + easeInOut[0] + ", " + easeInOut[1] + ", " + easeInOut[2] + ", " + easeInOut[3] + ")",
                     cursor: clickItems ? "pointer" : "default",
                     pointerEvents: clickItems ? "auto" : "none",
                 }}
@@ -97,8 +110,8 @@ const Popup: React.FC<bottomSheetProps> = ({ previewSize }) => {
                     transition: hold
                         ? "none"
                         : clickItems
-                          ? "transform 0.4s cubic-bezier(0.33, 1, 0.68, 1), opacity 0.3s cubic-bezier(0.33, 1, 0.68, 1)"
-                          : "transform 0.15s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.15s cubic-bezier(0.65, 0, 0.35, 1)",
+                          ? "transform 0.4s cubic-bezier(" + easeOut[0] + ", " + easeOut[1] + "" + easeOut[2] + "" + easeOut[3] + "), opacity 0.3s cubic-bezier(" + easeOut[0] + ", " + easeOut[1] + "" + easeOut[2] + "" + easeOut[3] + ")"
+                          : "transform 0.15s cubic-bezier(" + easeInOut[0] + ", " + easeInOut[1] + ", " + easeInOut[2] + ", " + easeInOut[3] + "), opacity 0.15s cubic-bezier(" + easeInOut[0] + ", " + easeInOut[1] + ", " + easeInOut[2] + ", " + easeInOut[3] + ")",
                     pointerEvents: clickItems ? "auto" : "none",
                 }}
             >

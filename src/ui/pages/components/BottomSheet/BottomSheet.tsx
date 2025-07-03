@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
-import TriggerButton from "../Ui/TriggerButton"
+import TriggerButton from "../00Common/TriggerButton/TriggerButton"
 import BottomSheetItem from "./Elem/BottomSheetItem"
+import EasingListSelProps from "../../page00_folder/EasingListSelProps"
 
 interface bottomSheetProps {
     previewSize?: { width: number; height: number }
@@ -12,7 +13,8 @@ const BottomSheet: React.FC<bottomSheetProps> = ({ previewSize, padding }) => {
     const [itemHeight, setItemHeight] = useState(0)
     const [hold, setHold] = useState(true)
     const [btnHeight, setBtnHeight] = useState(0)
-    
+    const [easeStand, setEaseStand] = useState<Array<string>>([])
+
     useEffect(() => {
         const timer = setTimeout(() => setHold(false), 100)
         return () => clearTimeout(timer)
@@ -31,6 +33,10 @@ const BottomSheet: React.FC<bottomSheetProps> = ({ previewSize, padding }) => {
     }
 
     useEffect(() => {}, [previewSize])
+
+    useEffect(() => {
+        setEaseStand(EasingListSelProps("ease_Standard")[1])
+    }, [])
 
     return (
         <div
@@ -57,7 +63,16 @@ const BottomSheet: React.FC<bottomSheetProps> = ({ previewSize, padding }) => {
                         left: "50%",
                         transform: "translate(-50%,-50%)",
                         opacity: clickItems ? 0 : 1,
-                        transition: "opacity 0.3s cubic-bezier(0.15, 0, 0.15, 1)",  
+                        transition:
+                            "opacity 0.3s cubic-bezier(" +
+                            easeStand[0] +
+                            ", " +
+                            easeStand[1] +
+                            ", " +
+                            easeStand[2] +
+                            ", " +
+                            easeStand[3] +
+                            ")",
                         transitionDelay: clickItems ? "0s" : "0.25s",
                     }}
                 >
@@ -67,7 +82,6 @@ const BottomSheet: React.FC<bottomSheetProps> = ({ previewSize, padding }) => {
                         onChangeState={handleChildValue}
                         onItemHeight={handleGetBtnHeight}
                     />
-                    
                 </div>
             </div>
             <div
@@ -79,8 +93,24 @@ const BottomSheet: React.FC<bottomSheetProps> = ({ previewSize, padding }) => {
                     backgroundColor: "#D9D9D9",
                     opacity: clickItems ? 1 : 0,
                     transition: clickItems
-                        ? "opacity 0.3s cubic-bezier(0.15, 0, 0.15, 1)"
-                        : "opacity 0.25s cubic-bezier(0.15, 0, 0.15, 1)",
+                        ? "opacity 0.3s cubic-bezier(" +
+                          easeStand[0] +
+                          ", " +
+                          easeStand[1] +
+                          ", " +
+                          easeStand[2] +
+                          ", " +
+                          easeStand[3] +
+                          ")"
+                        : "opacity 0.25s cubic-bezier(" +
+                          easeStand[0] +
+                          ", " +
+                          easeStand[1] +
+                          ", " +
+                          easeStand[2] +
+                          ", " +
+                          easeStand[3] +
+                          ")",
                     cursor: clickItems ? "pointer" : "default",
                     pointerEvents: clickItems ? "auto" : "none",
                 }}
@@ -102,8 +132,24 @@ const BottomSheet: React.FC<bottomSheetProps> = ({ previewSize, padding }) => {
                     transition: hold
                         ? "transform 0s "
                         : clickItems
-                          ? "transform 0.4s cubic-bezier(0.15, 0, 0.15, 1)"
-                          : "transform 0.35s cubic-bezier(0.15, 0, 0.15, 1)",
+                          ? "transform 0.4s cubic-bezier(" +
+                            easeStand[0] +
+                            ", " +
+                            easeStand[1] +
+                            ", " +
+                            easeStand[2] +
+                            ", " +
+                            easeStand[3] +
+                            ")"
+                          : "transform 0.35s cubic-bezier(" +
+                            easeStand[0] +
+                            ", " +
+                            easeStand[1] +
+                            ", " +
+                            easeStand[2] +
+                            ", " +
+                            easeStand[3] +
+                            ")",
                     pointerEvents: "none",
                 }}
             >

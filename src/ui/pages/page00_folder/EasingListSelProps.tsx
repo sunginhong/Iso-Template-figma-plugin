@@ -16,6 +16,8 @@ const EasingListSelProps = (easing: string): [string, string[], string] => {
             return ["Spring - level 1", ["0.45", "1.8", "0.57", "0.92"], "#60A2ED"];
         case "ease_Spring_Level_2":
             return ["Spring - level 2", ["0.45", "2.4", "0.68", "0.86"], "#60A2ED"];
+        case "linear":
+            return ["linear", ["0", "0", "1", "1"], "#727272"];
         default:
             return ["", [], ""];
     }

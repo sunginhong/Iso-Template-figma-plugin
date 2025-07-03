@@ -47,7 +47,7 @@ const GuideForm: React.FC<props> = ({
                     display: "flex",
                     flexDirection: "row",
                     alignItems: "flex-start",
-                    width: "100%",
+                    // width: "100%",
                     gap: "6px",
                 }}
             >
@@ -61,7 +61,7 @@ const GuideForm: React.FC<props> = ({
                     // padding: "36px 24px",
                     flexDirection: "column",
                     alignItems: "flex-start",
-                    width: "100%",
+                    // width: "100%",
                     gap: 24,
                     borderRadius: 8,
                     background: "#F7F7F7",

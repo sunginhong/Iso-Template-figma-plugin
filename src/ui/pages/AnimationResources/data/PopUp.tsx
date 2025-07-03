@@ -17,12 +17,29 @@ function DataSet(input: Partial<data>): data {
 const PopUpEntry: data[] = [
     DataSet({
         labels: "1",
-        actions: ["Slide In", "Fade In"],
+        actions: ["Slide Up"],
         props: [
-            { name: "Position Y", value: "(컴포넌트 위치 - (컴포넌트 위치/2)) → 컴포넌트 위치" },
+            { name: "Sacle", value: "0.96 → 1" },
+            { name: "Duration", value: "0.4s (400ms)" },
+            { name: "Curves", value: "EaseOut" },
+        ],
+    }),
+      DataSet({
+        labels: "1",
+        actions: ["Fade In"],
+        props: [
+            { name: "Opacity", value: "0 → 1" },
+            { name: "Duration", value: "0.3s (300ms)" },
+            { name: "Curves", value: "EaseOut" },
+        ],
+    }),
+     DataSet({
+        labels: "2",
+        actions: ["Fade In"],
+        props: [
             { name: "Opacity", value: "0 → 1" },
             { name: "Duration", value: "0.2s (200ms)" },
-            { name: "Curves", value: "EaseOut" },
+            { name: "Curves", value: "EaseInOut" },
         ],
     }),
 ]
@@ -31,11 +48,21 @@ const PopUpEntry: data[] = [
 const PopUpExit: data[] = [
     DataSet({
         labels: "1",
+        actions: ["Scale Down", "Fade Out"],
+        props: [
+            { name: "Sacle", value: "1 → 0.998" },
+            { name: "Opacity", value: "1 → 0" },
+            { name: "Duration", value: "0.15s (150ms)" },
+            { name: "Curves", value: "EaseInOut" },
+        ],
+    }),
+        DataSet({
+        labels: "2",
         actions: ["Fade Out"],
         props: [
             { name: "Opacity", value: "1 → 0" },
-            { name: "Duration", value: "0.1s (100ms)" },
-            { name: "Curves", value: "EaseOut" },
+            { name: "Duration", value: "0.15s (150ms)" },
+            { name: "Curves", value: "EaseInOut" },
         ],
     }),
 ]

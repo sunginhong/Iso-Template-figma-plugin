@@ -12,6 +12,8 @@ import BottomSheetPage from './pages/AnimationResources/BottomSheetPage';
 import PopUpPage from './pages/AnimationResources/PopUpPage';
 import FocusBubblePage from './pages/AnimationResources/FocusBubblePage';
 import PopOverPage from './pages/AnimationResources/PopOverPage';
+import PlaceHolderPage from './pages/AnimationResources/PlaceHolderPage';
+import TabPage from './pages/AnimationResources/TabPage';
 
 function App() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
@@ -30,15 +32,8 @@ function App() {
     { id: 2, title: "Popup", page: <PopUpPage/> },
     { id: 3, title: "Focus Bubble", page: <FocusBubblePage/> },
     { id: 4, title: "Popover", page: <PopOverPage/> },
-    // { id: 4, title: "Count", page: <TestPage/> },
-    // { id: 5, title: "Focus Bubble", page: <TestPage/> },
-    // { id: 6, title: "Image Affordance", page: <TestPage/> },
-    // { id: 7, title: "Menu", page: <TestPage/> },
-    // { id: 8, title: "Pin Input", page: <TestPage/> },
-    // 
-    // { id: 10, title: "Rolling", page: <TestPage/> },
-    // { id: 11, title: "Skeleton", page: <TestPage/> },
-    // { id: 12, title: "Tab", page: <TestPage/> },
+    { id: 5, title: "PlaceHolder", page: <PlaceHolderPage/> },
+    { id: 6, title: "Tab", page: <TabPage/> },
   ];
 
   const handleButtonClick = (index: number) => {

@@ -1,5 +1,3 @@
-import { color } from "framer-motion"
-import { title } from "process"
 import React from "react"
 
 interface Props {
@@ -16,7 +14,7 @@ const EaseProps = [
     { title: "Spring", color: "#4A96ED" },
     { title: "Spring - Level 1", color: "#4A96ED" },
     { title: "Spring - Level 2", color: "#4A96ED" },
-    { title: "linear", color: "#424242" },
+    { title: "Linear", color: "#727272" },
     { title: "Selection", color: "#20BB99" },
     { title: "Selection - 0.5", color: "#20BB99" },
     { title: "Success", color: "#4A96ED" },

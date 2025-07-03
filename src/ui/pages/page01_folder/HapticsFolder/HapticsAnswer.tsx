@@ -1,28 +1,30 @@
 import React, { useEffect, useState } from "react"
 
 interface HapticsAnswerProps {
-    haptics?: any;
+    haptics?: any
 }
-
 
 const HapticsAnswer: React.FC<HapticsAnswerProps> = ({ haptics }) => {
     const [hover, setHover] = useState(false)
 
-    const fnEasingCopy = async (text: string) => {
+    const fnHapticCopy = async (text: string) => {
+        // try {
+        //     await navigator.clipboard.writeText(haptics)
+        //     alert("클립보드에 복사되었습니다.")
+        // } catch (error) {
+        //     alert("클립보드에 복사하지 못하였습니다.")
+        // }
         try {
-            await navigator.clipboard.writeText(haptics)
-            alert("클립보드에 복사되었습니다.")
-        } catch (error) {
-            alert("클립보드에 복사하지 못하였습니다.")
-        }
+            await navigator.clipboard.writeText(text)
+        } catch (error) {}
+        alert("아래 내용을 복사하여 사용해 주세요.\n\n" + text + "\n")
     }
 
     const btnClick = (e) => {
-        fnEasingCopy(haptics)
+        fnHapticCopy(haptics)
     }
 
-    useEffect(() => {
-    }, [])
+    useEffect(() => {}, [])
 
     return (
         <div
@@ -75,8 +77,7 @@ const HapticsAnswer: React.FC<HapticsAnswerProps> = ({ haptics }) => {
                         : "rgba(0,0,0,0.0)",
                     border: "0",
                     cursor: "pointer",
-                    transition:
-                        "all 300ms cubic-bezier(0.15, 0, 0.15, 1)",
+                    transition: "all 300ms cubic-bezier(0.15, 0, 0.15, 1)",
                 }}
                 onClick={btnClick}
                 onMouseOver={() => setHover(true)}
@@ -97,11 +98,8 @@ const HapticsAnswer: React.FC<HapticsAnswerProps> = ({ haptics }) => {
                     style={{
                         width: "12px",
                         height: "15px",
-                        filter: hover
-                            ? "brightness(0.9)"
-                            : "brightness(1)",
-                        transition:
-                            "all 300ms cubic-bezier(0.15, 0, 0.15, 1)",
+                        filter: hover ? "brightness(0.9)" : "brightness(1)",
+                        transition: "all 300ms cubic-bezier(0.15, 0, 0.15, 1)",
                     }}
                 >
                     <svg
@@ -136,4 +134,4 @@ const HapticsAnswer: React.FC<HapticsAnswerProps> = ({ haptics }) => {
     )
 }
 
-export default HapticsAnswer;
+export default HapticsAnswer

@@ -37,7 +37,7 @@ const Frame2Timeline: React.FC<Frame2PropsProps> = ({
 }) => {
     const frameRef = useRef<HTMLDivElement>(null)
     const [rowHeight, setRowHeight] = useState<number>(0)
-    const TimeBoxWidth = 80
+    const [timeBoxWidth, settimeBoxWidth] = useState<number>(80)
     const [Frame2TimelinePos, setFrame2TimelinePos] = useState<{
         x: number
         y: number
@@ -58,7 +58,11 @@ const Frame2Timeline: React.FC<Frame2PropsProps> = ({
         }
     }, [frameRef])
 
-    useEffect(() => {}, [])
+    useEffect(() => {
+        if (typeof totalTime === "number") {
+            settimeBoxWidth(totalTime < 5 ? 80 : totalTime <= 6 ? 70 : totalTime <= 10 ? 55 : 15)
+        }
+    }, [totalTime])
 
     return (
         <div
@@ -73,7 +77,7 @@ const Frame2Timeline: React.FC<Frame2PropsProps> = ({
             <div
                 style={{
                     height: "100%",
-                    width: (totalTime + 2) * TimeBoxWidth + "px",
+                    width: (totalTime + 2) * timeBoxWidth + "px",
                     display: "flex",
                     flexDirection: "row",
                     justifyContent: "left",
@@ -94,6 +98,10 @@ const Frame2Timeline: React.FC<Frame2PropsProps> = ({
                         : 0
                     const maxValue = Math.max(duration + delay, duration, delay)
 
+                     const easingProp = props.find(
+                        (p) => p.name === "Curves"
+                    )
+
                     useEffect(() => {
                         onValues(maxValue)
                     }, [maxValue, onValues])
@@ -107,7 +115,7 @@ const Frame2Timeline: React.FC<Frame2PropsProps> = ({
                                         style={{
                                             position: "absolute",
                                             width:
-                                                (totalTime + 2) * TimeBoxWidth +
+                                                (totalTime + 2) * timeBoxWidth +
                                                 "px",
                                             height: rowHeight + "px",
                                         }}
@@ -120,8 +128,9 @@ const Frame2Timeline: React.FC<Frame2PropsProps> = ({
                                                 idx={idx}
                                                 index={i}
                                                 rowHeight={rowHeight}
-                                                TimeBoxWidth={TimeBoxWidth}
+                                                TimeBoxWidth={timeBoxWidth}
                                                 lastItem={lastItem}
+                                                totalIndex={totalTime}
                                             />
                                         ))}
                                     </div>
@@ -140,7 +149,8 @@ const Frame2Timeline: React.FC<Frame2PropsProps> = ({
                                 duration={
                                     parseFloat(prop.value.split("s")[0]) * 10
                                 }
-                                width={TimeBoxWidth}
+                                ease={props.find((p) => p.name === "Curves")}
+                                width={timeBoxWidth}
                             />
                         ) : null
                     })}

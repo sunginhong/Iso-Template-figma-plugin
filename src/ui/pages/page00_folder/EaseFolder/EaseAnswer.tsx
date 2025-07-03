@@ -10,15 +10,16 @@ const EaseAnswer: React.FC<EaseAnswerProps> = ({ propsTitle }) => {
 
     const fnEasingCopy = async (text: string) => {
         try {
-            await navigator.clipboard.writeText(propsTitle)
-            alert("클립보드에 복사되었습니다.")
+            await navigator.clipboard.writeText(text)
         } catch (error) {
-            alert("클립보드에 복사하지 못하였습니다.")
         }
+        alert("아래 내용을 복사하여 사용해 주세요.\n\n" + text + "\n");
     }
 
     const btnClick = (e) => {
-        fnEasingCopy(propsTitle)
+        if (propsTitle) {
+            fnEasingCopy(propsTitle)
+        }
     }
 
     useEffect(() => {
@@ -78,7 +79,8 @@ const EaseAnswer: React.FC<EaseAnswerProps> = ({ propsTitle }) => {
                     transition:
                         "all 300ms cubic-bezier(0.15, 0, 0.15, 1)",
                 }}
-                onClick={btnClick}
+                // onClick={btnClick}
+                onClick={() => fnEasingCopy(propsTitle || "")}
                 onMouseOver={() => setHover(true)}
                 onMouseOut={() => setHover(false)}
             >

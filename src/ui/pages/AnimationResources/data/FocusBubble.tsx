@@ -21,7 +21,7 @@ const FocusBubbleEntry: data[] = [
         props: [
             { name: "Scale", value: "0.7 → 1" },
             { name: "Opacity", value: "0 → 1" },
-            { name: "Duration", value: "0.25s (250ms)" },
+            { name: "Duration", value: "0.3s (300ms)" },
             { name: "Curves", value: "Spring" },
         ],
     }),
