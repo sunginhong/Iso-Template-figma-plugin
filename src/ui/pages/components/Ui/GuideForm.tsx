@@ -8,6 +8,7 @@ interface props {
     dataSet: any[]
     guide?: boolean
     timeline?: boolean
+    bgArr?: {bgColor?: string, borderRadius?: number}
 }
 
 const caseTitleStyle: React.CSSProperties = {
@@ -26,6 +27,7 @@ const GuideForm: React.FC<props> = ({
     dataSet,
     guide,
     timeline,
+    bgArr = { bgColor: "#F7F7F7", borderRadius: 8 },
 }) => {
     return (
         <div
@@ -38,10 +40,10 @@ const GuideForm: React.FC<props> = ({
                 alignItems: "flex-start",
                 gap: "16px",
                 paddingTop: "16px",
-                paddingBottom: "16px",
+                paddingBottom: timeline ? "16px" : "0px",
             }}
         >
-            <div
+            {(caseTitle && guide || caseTitle && !guide && !timeline) ? <div
                 className="case_title"
                 style={{
                     display: "flex",
@@ -53,7 +55,8 @@ const GuideForm: React.FC<props> = ({
             >
                 <div style={caseTitleStyle}>I</div>
                 <div style={caseTitleStyle}>{caseTitle}</div>
-            </div>
+            </div> : null}
+            
             <div
                 className="guide_contents"
                 style={{
@@ -61,10 +64,10 @@ const GuideForm: React.FC<props> = ({
                     // padding: "36px 24px",
                     flexDirection: "column",
                     alignItems: "flex-start",
-                    // width: "100%",
+                    width: "100%",
                     gap: 24,
-                    borderRadius: 8,
-                    background: "#F7F7F7",
+                    borderRadius: !bgArr?.borderRadius ? "0px" : bgArr?.borderRadius + "px",
+                    background: !bgArr?.bgColor ? "#F7F7F7" : bgArr?.bgColor,
                 }}
             >
                 <div
@@ -78,13 +81,13 @@ const GuideForm: React.FC<props> = ({
                     }}
                 >
                     {guide && <GuideTable data={dataSet} previewSize={previewSize}/>}
-                    <div
-                        style={{
-                            width: "100%",
-                            height: 1,
-                            backgroundColor: "rgba(0,0,0,0.2)",
-                        }}
-                    />
+                    {guide && timeline ? <div
+                            style={{
+                                width: "100%",
+                                height: 1,
+                                backgroundColor: "rgba(0,0,0,0.2)",
+                            }}
+                    /> : null}
                     {timeline && <GuideTimeline data={dataSet} previewSize={previewSize}/>}
                 </div>
             </div>

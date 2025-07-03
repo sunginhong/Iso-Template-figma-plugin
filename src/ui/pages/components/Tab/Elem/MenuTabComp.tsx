@@ -17,32 +17,29 @@ const MenuTabComp: React.FC<Props> = ({
     const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 })
     const listItemRef = useRef<Array<HTMLDivElement | null>>([])
     const scrollRef = useRef<HTMLDivElement>(null)
+    const scPadding = 12 
 
     useEffect(() => {
         const el = listItemRef.current[currentIdx]
         if (el) {
             setIndicatorStyle({
                 left: el.offsetLeft,
-                width: el.offsetWidth,
+                width: currentIdx < tabLabels?.length-1 ? el.offsetWidth : el.offsetWidth - scPadding,
             })
         }
     }, [currentIdx, tabLabels])
 
     const handleTabClick = (i: number) => {
         onChangeIdx(i)
-        // scrollRef.current?.scrollTo({
-        //     left: listItemRef.current[i]?.offsetLeft  - 393/2 + (indicatorStyle.width/2) || 0,
-        //     behavior: "smooth",
-        // })
-
-        scrollToTop(scrollRef, listItemRef.current[i]?.offsetLeft  - 393/2 + (indicatorStyle.width/2), 0)
+   
+        scrollToAnchor(scrollRef, listItemRef.current[i]?.offsetLeft  - 393/2 + (indicatorStyle.width/2), 0)
     }
 
     function easeOutCubic(t: number) {
         return 1 - Math.pow(1 - t, 3)
     }
 
-    function scrollToTop(
+    function scrollToAnchor(
         ref: React.RefObject<HTMLElement>,
         to: number,
         duration: number
@@ -113,9 +110,7 @@ const MenuTabComp: React.FC<Props> = ({
                         scrollBehavior: "smooth",
                     }}
                     onScroll={() => {
-                        if (scrollRef.current) {
-                            // console.log("scrollLeft:", scrollRef.current.scrollLeft)
-                        }
+                  
                     }}
                 >
                     <div
@@ -125,11 +120,11 @@ const MenuTabComp: React.FC<Props> = ({
                             display: "flex",
                             justifyContent: "start",
                             flexDirection: "row",
-                            gap: "8px",
+                            gap: "6px",
                             alignItems: "center",
                             flex: "1 0 0",
-                            paddingLeft: "20px",
-                            marginRight: "20px",
+                            paddingLeft: scPadding + "px",
+                            // marginRight: "20px",
                         }}
                     >
                         {tabLabels.map((item, index) => (
@@ -144,12 +139,12 @@ const MenuTabComp: React.FC<Props> = ({
                                     alignItems: "center",
                                     gap: "11px",
                                     position: "relative",
-                                    paddingLeft: "8px",
-                                    paddingRight: "8px",
+                                    paddingLeft: "6px",
+                                    // paddingRight: "8px",
                                     cursor: "pointer",
                                     whiteSpace: "nowrap",
                                     fontStyle: "normal",
-                                    // marginRight: index === tabLabels.length-1 ? "20px" : "8px",
+                                    paddingRight: index < tabLabels?.length-1 ? "6px" :scPadding+"px",
                                     fontWeight:
                                         currentIdx === index ? 700 : 500,
                                     color:
@@ -166,6 +161,7 @@ const MenuTabComp: React.FC<Props> = ({
                             </div>
                         ))}
                         <div
+                            className="indicator"
                             style={{
                                 position: "absolute",
                                 left: indicatorStyle.left,
